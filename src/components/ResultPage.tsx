@@ -1,7 +1,46 @@
-import React from 'react'
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+
+
+
+
 
 export default function ResultPage() {
+ 
+
+  const [student,setStudent] = useState("");
+
+useEffect(()=>{
+    axios.get("http://localhost:8080/jntu/drk/exam")
+    .then(
+        (res)=>{
+            setStudent(res.data);
+        }
+    );
+});
+
+  
+
   return (
-    <div>ResultPage</div>
-  )
+    <div>
+      <table className="table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">College</th>
+            <th scope="col">Course</th>
+            <th scope="col">Marks</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">{student.name}</th>
+            <td>{student.college}</td>
+            <td>{student.course}</td>
+            <td>{student.marks}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  );
 }
