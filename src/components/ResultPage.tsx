@@ -10,7 +10,7 @@ export default function ResultPage() {
 
   useEffect(() => {
     console.log("id--->"+id);
-    axios.get("http://localhost:8080/jntu/drk/exam").then((res) => {
+    axios.get("http://localhost:8080/jntu/drk/exam?id="+id).then((res) => {
       setStudent(res.data);
     });
   });

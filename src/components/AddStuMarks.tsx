@@ -2,8 +2,12 @@ import axios from "axios";
 import React, { useState } from "react";
 
 import '../css/stures.css'
+import { useNavigate } from "react-router-dom";
 
 export default function AddStuMarks() {
+
+const goAll = useNavigate();
+
 
 
     const [message,setMessage] = useState("");
@@ -72,8 +76,9 @@ export default function AddStuMarks() {
     axios.post("http://localhost:8080/jntu/exam/add/marks", student)
     .then((res) => {
       console.log("res from spring boot-->" + res.data);
-      setMessage(res.data);
-      setRollNo(" ");
+     // setMessage(res.data);
+      //setRollNo(" ");
+      goAll("/all");
     });
   };
 

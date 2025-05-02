@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import '../css/bootsearch.css'
 import { useNavigate } from "react-router-dom";
@@ -7,11 +7,16 @@ export default function BootSearch() {
 
     const resPage = useNavigate();
 
+    const [rollno,setRollno] = useState("");
+
 
     const showRes = ()=>{
-        resPage("/Result/123");
+      console.log("rollno---->"+rollno);
+        resPage("/Result/"+rollno);
     }
-
+const getRollNo =(e:any)=>{
+setRollno(e.target.value);
+}
 
   return (
     <div>
@@ -21,7 +26,10 @@ export default function BootSearch() {
             <div className="col-md-6">
               <div className="search-1">
                 <i className="bx bx-search-alt"></i>
-                <input type="text" placeholder="Enter Roll Number" />
+                <input 
+                onChange={getRollNo}
+                type="text"
+                 placeholder="Enter Roll Number" />
               </div>{" "}
             </div>{" "}
             <div className="col-md-6">

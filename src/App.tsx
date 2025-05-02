@@ -4,6 +4,7 @@ import BootSearch from "./components/BootSearch";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ResultPage from "./components/ResultPage";
 import AddStuMarks from "./components/AddStuMarks";
+import AllStudents from "./components/AllStudents";
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
           <Route path="/" element={<BootSearch />} />
           <Route path="/Result/:id" element={<ResultPage />} />
           <Route path="/stuMarks" element={<AddStuMarks />} />
+          <Route path="/all" element={<AllStudents />} />
           
         </Routes>
       </BrowserRouter>
