@@ -9,7 +9,7 @@ export default function BootSearch() {
 
 
     const showRes = ()=>{
-        resPage("/Result");
+        resPage("/Result/123");
     }
 
 

@@ -1,25 +1,19 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-
-
-
-
+import { useParams } from "react-router-dom";
 
 export default function ResultPage() {
- 
 
-  const [student,setStudent] = useState("");
+    const {id} = useParams();
+    
+  const [student, setStudent] = useState("");
 
-useEffect(()=>{
-    axios.get("http://localhost:8080/jntu/drk/exam")
-    .then(
-        (res)=>{
-            setStudent(res.data);
-        }
-    );
-});
-
-  
+  useEffect(() => {
+    console.log("id--->"+id);
+    axios.get("http://localhost:8080/jntu/drk/exam").then((res) => {
+      setStudent(res.data);
+    });
+  });
 
   return (
     <div>
